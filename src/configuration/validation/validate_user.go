@@ -42,13 +42,12 @@ func ValidateUserError(
 				Message: err.Translate(translate),
 				Field:   err.Field(),
 			}
-
 			errorCauses = append(errorCauses, cause)
 		}
 
 		return rest_err.NewUnprocessableEntityValidationError("Campo(s) inválido(s)", errorCauses)
 	} else {
-		return rest_err.NewInternalServerError("Erro ao tentar traduzir os campos")
+		return rest_err.NewInternalServerError("Internal Server Error")
 	}
 
 }
