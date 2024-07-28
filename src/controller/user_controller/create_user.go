@@ -1,11 +1,12 @@
 package user_controller
 
 import (
-	"fmt"
 	"github.com/gabinwh/learning-go/src/configuration/validation"
 	"github.com/gabinwh/learning-go/src/controller/model/request"
+	"github.com/gabinwh/learning-go/src/controller/model/response"
 	"github.com/gin-gonic/gin"
 	"log"
+	"net/http"
 )
 
 func Create(context *gin.Context) {
@@ -18,5 +19,13 @@ func Create(context *gin.Context) {
 		return
 	}
 
-	fmt.Println(userRequest)
+	userResponse := response.UserResponse{
+		ID:    "1",
+		Name:  userRequest.Name,
+		Email: userRequest.Email,
+		Age:   userRequest.Age,
+	}
+
+	context.JSON(http.StatusCreated, userResponse)
+	return
 }
