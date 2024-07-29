@@ -2,6 +2,6 @@ package user_controller
 
 import "github.com/gin-gonic/gin"
 
-func Delete(context *gin.Context) {
+func (uc *userControllerInterface) Delete(context *gin.Context) {
 
 }

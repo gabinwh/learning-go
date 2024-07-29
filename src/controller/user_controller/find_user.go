@@ -5,12 +5,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func FindById(c *gin.Context) {
+func (uc *userControllerInterface) Find(context *gin.Context) {
 	err := rest_err.NewBadRequestError("Rota errada!")
 
-	c.JSON(err.Code, err)
+	context.JSON(err.Code, err)
 }
 
-func FindByEmail(context *gin.Context) {
+func (uc *userControllerInterface) FindByEmail(context *gin.Context) {
 
 }
